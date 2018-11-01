@@ -146,8 +146,8 @@ RUN apt-get update && apt-get install -y \
 		libsnappy-dev \
 		protobuf-compiler \
 		&& \
-	apt-get clean && \
-	apt-get autoremove && \
+	apt-get clean -y && \
+	apt-get autoremove -y && \
 	rm -rf /var/lib/apt/lists/*
 
 # Install Caffe

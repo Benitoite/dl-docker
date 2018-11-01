@@ -109,6 +109,9 @@ RUN apt-get update && apt-get install -y \
 	apt-get autoremove && \
 	rm -rf /var/lib/apt/lists/*
 
+# Flush ipython for next step
+RUN apt-get remove ipython
+
 # Install other useful Python packages using pip
 RUN pip --no-cache-dir install \
 		Cython \

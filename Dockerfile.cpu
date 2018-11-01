@@ -110,7 +110,7 @@ RUN apt-get update && apt-get install -y \
 	rm -rf /var/lib/apt/lists/*
 
 # Flush ipython for next step
-RUN apt-get remove ipython
+RUN apt-get remove ipython -y
 
 # Install other useful Python packages using pip
 RUN pip --no-cache-dir install \

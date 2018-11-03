@@ -128,7 +128,7 @@ RUN python2 -m pip install ipykernel && python2 -m ipykernel install --user && p
 
 RUN python2 -m pip install wheel && python3 -m pip install wheel
 
-RUN yes yes | apt-get install python3-pyqt4
+RUN apt-get update && yes yes | apt-get install python3-pyqt4
 
 # Install TensorFlow
 RUN pip --no-cache-dir install tensorflow && pip3 --no-cache-dir install tensorflow
@@ -154,6 +154,7 @@ RUN apt-get update && apt-get install -y \
 RUN git clone -b ${CAFFE_VERSION} --depth 1 https://github.com/BVLC/caffe.git /root/caffe && \
 	cd /root/caffe && \
 	cat python/requirements.txt | xargs -n1 pip install && \
+	cat python/requirements.txt | xargs -n1 pip3 install && \
 	mkdir build && cd build && \
 	cmake -DCPU_ONLY=1 -DBLAS=Open .. && \
 	make -j"$(nproc)" all && \

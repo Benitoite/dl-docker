@@ -129,9 +129,7 @@ RUN python2 -m pip install ipykernel && python2 -m ipykernel install --user && p
 RUN python2 -m pip install wheel && python3 -m pip install wheel
 
 # Install TensorFlow
-RUN pip --no-cache-dir install \
-	https://storage.googleapis.com/tensorflow/linux/${TENSORFLOW_ARCH}/tensorflow-${TENSORFLOW_VERSION}-cp27-none-linux_x86_64.whl
-
+RUN pip --no-cache-dir install tensorflow && pip3 --no-cache-dir install tensorflow
 
 # Install dependencies for Caffe
 RUN apt-get update && apt-get install -y \

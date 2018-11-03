@@ -128,6 +128,8 @@ RUN python2 -m pip install ipykernel && python2 -m ipykernel install --user && p
 
 RUN python2 -m pip install wheel && python3 -m pip install wheel
 
+RUN yes yes | apt-get install python3-pyqt4
+
 # Install TensorFlow
 RUN pip --no-cache-dir install tensorflow && pip3 --no-cache-dir install tensorflow
 

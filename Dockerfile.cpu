@@ -116,7 +116,6 @@ RUN apt-get remove ipython -y
 # Install other useful Python packages using pip
 RUN pip --no-cache-dir install \
 		Cython \
-		ipykernel \
 		jupyter \
 		path.py \
 		Pillow \
@@ -124,10 +123,9 @@ RUN pip --no-cache-dir install \
 		six \
 		sphinx \
 		wheel \
-		zmq \
-		&& \
-	python -m ipykernel.kernelspec
-
+		zmq
+		
+RUN python2 -m pip install ipykernel && python2 -m ipykernel install --user && python3 -m pip install ipykernel && python3 -m ipykernel install --user && python -m ipykernel.kernelspec
 
 # Install TensorFlow
 RUN pip --no-cache-dir install \

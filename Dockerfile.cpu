@@ -122,10 +122,11 @@ RUN pip --no-cache-dir install \
 		pygments \
 		six \
 		sphinx \
-		wheel \
 		zmq
-		
+
 RUN python2 -m pip install ipykernel && python2 -m ipykernel install --user && python3 -m pip install ipykernel && python3 -m ipykernel install --user && python -m ipykernel.kernelspec
+
+RUN python2 -m pip install wheel && python3 -m pip install wheel
 
 # Install TensorFlow
 RUN pip --no-cache-dir install \
